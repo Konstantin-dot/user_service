@@ -10,6 +10,7 @@ public class Main {
     private static final UserDao userDao = new UserDaoImpl();
 
     public static void main(String[] args) {
+
         System.out.println(
                 "Используется Hibernate без Spring \n" +
                 "Подключение к БД PostgreSQL \n" +
