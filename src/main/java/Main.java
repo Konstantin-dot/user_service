@@ -12,6 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println(
+                "ДЗ №2 \n" +
                 "Используется Hibernate без Spring \n" +
                 "Подключение к БД PostgreSQL \n" +
                 "Hibernate используется без Spring с использованием hibernate.cfg.xml \n" +
@@ -21,7 +22,13 @@ public class Main {
                 "Выполнено логирование SLF4J, Logback, логирование DAO, логирование операций \n" +
                 "Выполнена транзакционность, вынесена в TransactionManager, rollback при ошибках, commit централизован \n" +
                 "DAO-паттерн реализован, (изоляция доступа к БД) \n" +
-                "Для оборачивания исключений Hibernate + PostgreSQL реализован DataAccessException \n");
+                "Для оборачивания исключений Hibernate + PostgreSQL реализован DataAccessException \n" +
+                "ДЗ 3 \n" +
+                "Добавил класс бизнес-логики UserService \n" +
+                "Добавил зависимости JUnit 5, Mockito в Maven \n" +
+                "Создал класс UserServiceTest с Unit тестами \n" +
+                "Добавил зависимости по Testcontainers + PostgreSQL в Maven \n" +
+                "Создал класс UserDaoIntegrationTest c Integration тестами \n");
 
         Scanner scanner = new Scanner(System.in);
 
