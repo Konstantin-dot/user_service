@@ -1,6 +1,6 @@
 package com.aston.dao;
 
-import com.aston.model.User;
+import com.aston.entity.User;
 
 import java.util.List;
 

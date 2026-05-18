@@ -1,4 +1,4 @@
-package com.aston.model;
+package com.aston.entity;
 
 import jakarta.persistence.*;
 
@@ -21,6 +21,11 @@ public class User {
     private LocalDateTime createdAt;
 
     public User() {
+    }
+
+    @PrePersist // выполняется перед сохранением объекта в БД
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
     }
 
     public User(String name, String email, int age) {
