@@ -7,11 +7,16 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtil {
 
     // Создание объекта конфигурации Hibernate
-    private static final SessionFactory sessionFactory =
-            new Configuration().configure().buildSessionFactory();
+    private static SessionFactory sessionFactory;
 
     // Метод для получения фабрики
     public static SessionFactory getSessionFactory() {
+        if (sessionFactory == null) { // Добавил проверку, что DAO не вызывается при ошибке
+            sessionFactory = new Configuration()
+                    .configure()
+                    .buildSessionFactory();
+        }
         return sessionFactory;
     }
+
 }
