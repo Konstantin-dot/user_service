@@ -2,6 +2,7 @@ package com.aston.service;
 
 import com.aston.dto.UserDto;
 import com.aston.entity.User;
+import com.aston.exception.UserNotFoundException;
 import com.aston.mapper.UserMapper;
 import com.aston.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class UserService {
     // получение пользователя по id
     public UserDto getById(Long id) {
         User user = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User with id " + id + " not found"));
         return UserMapper.toDto(user);
     }
 

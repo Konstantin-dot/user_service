@@ -3,6 +3,7 @@ package com.aston.controller;
 import com.aston.dto.UserDto;
 import com.aston.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class UserController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public UserDto create(@RequestBody @Valid UserDto dto) {
         return service.create(dto);
     }
