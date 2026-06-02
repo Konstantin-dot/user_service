@@ -51,7 +51,19 @@ public class Main {
                         "Создал KafkaProducerService выполняет отправку сообщений в kafka \n" +
                         "В UserService добавил зависимость kafka и поправил методы CREATE и DELETE \n" +
                         "В application.properties добавил порт для подключения к Kafka-брокеру \n" +
-                        "Поправил существующие тесты \n");
+                        "Поправил существующие тесты \n" +
+                        "ДЗ 6 \n" +
+                        "Добавил зависимость Swagger / Open API \n" +
+                        "Поправил UserController под Swagger \n" +
+                        "Добавил зависимость HATEOAS \n" +
+                        "Добавил класс UserModelAssembler преобразователь UserDto в HATEOAS-представление \n" +
+                        "Обновил Controller под HATEOAS \n");
+
+                        // запуск docker compose up
+                        // запуск user-service
+                        // запуск notification-service
+                        // по ссылке http://localhost:8080/swagger-ui/index.html
+                        // по ссылке http://localhost:8080/swagger-ui.html
 
         SpringApplication.run(Main.class, args);
     }
