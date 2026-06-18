@@ -1,5 +1,7 @@
 package com.aston.kafka;
 
+import com.aston.constants.EventTypes;
+import com.aston.constants.NotificationConstants;
 import com.aston.service.EmailService;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -14,26 +16,26 @@ public class NotificationConsumer {
     }
 
     @KafkaListener(
-            topics = "user-topic",
-            groupId = "notification-group"
+            topics = "${app.kafka.topic}",
+            groupId = "${app.kafka.group-id}"
     )
     public void listen(UserEvent event) {
 
-        if ("CREATE".equals(event.getOperation())) {
+        if (EventTypes.CREATE.equals(event.getOperation())) {
 
             emailService.send(
                     event.getEmail(),
-                    "Account created",
-                    "Здравствуйте! Ваш аккаунт был успешно создан."
+                    NotificationConstants.ACCOUNT_CREATED_SUBJECT,
+                    NotificationConstants.ACCOUNT_CREATED_TEXT
             );
         }
 
-        if ("DELETE".equals(event.getOperation())) {
+        if (EventTypes.DELETE.equals(event.getOperation())) {
 
             emailService.send(
                     event.getEmail(),
-                    "Account deleted",
-                    "Здравствуйте! Ваш аккаунт был удалён."
+                    NotificationConstants.ACCOUNT_DELETED_SUBJECT,
+                    NotificationConstants.ACCOUNT_DELETED_TEXT
             );
         }
     }

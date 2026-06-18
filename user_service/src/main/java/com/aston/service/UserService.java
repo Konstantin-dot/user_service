@@ -1,5 +1,6 @@
 package com.aston.service;
 
+import com.aston.constants.EventTypes;
 import com.aston.dto.UserDto;
 import com.aston.entity.User;
 import com.aston.exception.UserNotFoundException;
@@ -30,7 +31,7 @@ public class UserService {
         User savedUser = repository.save(user);
         kafkaProducerService.sendEvent(
                 new UserEvent(
-                        "CREATE",
+                        EventTypes.CREATE,
                         savedUser.getEmail()
                 )
         );
@@ -72,7 +73,7 @@ public class UserService {
         repository.deleteById(id);
         kafkaProducerService.sendEvent(
                 new UserEvent(
-                        "DELETE",
+                        EventTypes.DELETE,
                         user.getEmail()
                 )
         );
